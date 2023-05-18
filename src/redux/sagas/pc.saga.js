@@ -3,25 +3,28 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchPC() {
+    try {
+        const response = yield axios.get('/api/pc');
 
+        yield put({ type: 'SET_PC_LIST', payload: response.data });
+    } catch (error) {
+        console.log('PC GET request failed', error);
+    }
 }
 
 function* addPC() {
   try {
-    const response = yield axios.post('/api/pc');
+    yield axios.post('/api/pc');
 
-    // now that the session has given us a user object
-    // with an id and username set the client-side user object to let
-    // the client-side code know the user is logged in
-    yield put({ type: 'SET_USER', payload: response.data });
+    yield put({ type: 'FETCH_PC_LIST' });
   } catch (error) {
-    console.log('User get request failed', error);
+    console.log('PC POST request failed', error);
   }
 }
 
 function* pcSaga() {
   yield takeLatest('ADD_PC', addPC);
-  yield takeLatest('FETCH_PC', fetchPC);
+  yield takeLatest('FETCH_PC_LIST', fetchPC);
 }
 
 export default pcSaga;

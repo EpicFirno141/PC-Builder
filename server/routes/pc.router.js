@@ -6,7 +6,14 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  // GET route code here
+    const queryText = `SELECT pc.id, pc.name, pc.color, status.name AS status FROM pc 
+    JOIN status ON pc.status_id = status.id WHERE pc.user_id = $1;`;
+    pool.query(queryText, [req.user.id]).then((response) => {
+        res.send(response.data);
+    }).catch((err) => {
+        console.log('Get PC failed: ', err);
+        res.sendStatus(500);
+    });
 });
 
 /**
