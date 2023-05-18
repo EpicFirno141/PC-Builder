@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import './Nav.css';
+import { Link, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -13,6 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
 function Nav() {
+  const history = useHistory();
   const user = useSelector((store) => store.user);
 
   const [auth, setAuth] = React.useState(true);
@@ -24,6 +23,14 @@ function Nav() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const login = () => {
+    history.push('/login');
+  };
+
+  const list = () => {
+    history.push('/');
   };
 
   return (
@@ -62,7 +69,7 @@ function Nav() {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                   >
-                    <MenuItem onClick={handleClose}>Login</MenuItem>
+                    <MenuItem onClick={login}>Login</MenuItem>
                   </Menu>
                 )
               }
@@ -84,6 +91,7 @@ function Nav() {
                     onClose={handleClose}
                   >
                     <MenuItem onClick={handleClose}>Profile</MenuItem>
+                    <MenuItem onClick={list}>PC List</MenuItem>
                     <MenuItem onClick={handleClose}>Log Out</MenuItem>
                   </Menu>
                 )

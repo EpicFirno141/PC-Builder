@@ -14,10 +14,7 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import PCList from '../PCList/PCList';
-import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../PCList/PCList';
+import Profile from '../Profile/Profile';
 import LoginPage from '../LoginPage/LoginPage';
 import './App.css';
 import { ThemeProvider } from '@emotion/react';
@@ -52,15 +49,6 @@ function App() {
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/list" />
 
-            {/* Visiting localhost:3000/about will show the about page. */}
-            <Route
-              // shows AboutPage at all times (logged in or not)
-              exact
-              path="/about"
-            >
-              <AboutPage />
-            </Route>
-
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -68,17 +56,17 @@ function App() {
             <ProtectedRoute
               // logged in shows UserPage else shows LoginPage
               exact
-              path="/user"
+              path="/profile"
             >
-              <UserPage />
+              <Profile />
             </ProtectedRoute>
 
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
-              path="/info"
+              path="/list"
             >
-              <InfoPage />
+              <PCList />
             </ProtectedRoute>
 
             <Route
@@ -88,38 +76,10 @@ function App() {
               {user.id ?
                 // If the user is already logged in, 
                 // redirect to the /user page
-                <Redirect to="/user" />
+                <Redirect to="/profile" />
                 :
                 // Otherwise, show the login page
                 <LoginPage />
-              }
-            </Route>
-
-            <Route
-              exact
-              path="/list"
-            >
-              {user.id ?
-                // If the user is already logged in, 
-                // redirect them to the /user page
-                <Redirect to="/login" />
-                :
-                // Otherwise, show the registration page
-                <PCList />
-              }
-            </Route>
-
-            <Route
-              exact
-              path="/list"
-            >
-              {!user.id ?
-                // If the user is already logged in, 
-                // redirect them to the /user page
-                <Redirect to="/user" />
-                :
-                // Otherwise, show the Landing page
-                <LandingPage />
               }
             </Route>
 
