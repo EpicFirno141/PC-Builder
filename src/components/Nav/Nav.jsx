@@ -31,7 +31,7 @@ function Nav() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-            PC List
+            PC Builder
           </Typography>
           {auth && (
             <div>
