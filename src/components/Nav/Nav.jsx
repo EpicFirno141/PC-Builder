@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,6 +12,7 @@ import Menu from '@mui/material/Menu';
 
 function Nav() {
   const history = useHistory();
+  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
 
   const [auth, setAuth] = React.useState(true);
@@ -28,9 +29,17 @@ function Nav() {
   const login = () => {
     history.push('/login');
   };
+  
+  const logout = () => {
+    dispatch({ type: 'LOGOUT' });
+  }
+
+  const profile = () => {
+    history.push('/profile')
+  }
 
   const list = () => {
-    history.push('/');
+    history.push('/list');
   };
 
   return (
@@ -90,9 +99,9 @@ function Nav() {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                   >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                    <MenuItem onClick={profile}>Profile</MenuItem>
                     <MenuItem onClick={list}>PC List</MenuItem>
-                    <MenuItem onClick={handleClose}>Log Out</MenuItem>
+                    <MenuItem onClick={logout}>Log Out</MenuItem>
                   </Menu>
                 )
               }
