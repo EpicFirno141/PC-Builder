@@ -6,7 +6,7 @@ function* fetchPC() {
     try {
         const response = yield axios.get('/api/pc');
 
-        yield put({ type: 'SET_PC_LIST', payload: response });
+        yield put({ type: 'SET_PC_LIST', payload: response.data.rows });
     } catch (error) {
         console.log('PC GET request failed', error);
     }

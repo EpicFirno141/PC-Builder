@@ -9,13 +9,13 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import PCList from '../PCList/PCList';
 import Profile from '../Profile/Profile';
 import LoginPage from '../LoginPage/LoginPage';
+import ViewPC from '../ViewPC/ViewPC';
 import './App.css';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
@@ -54,7 +54,6 @@ function App() {
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
             <ProtectedRoute
-              // logged in shows UserPage else shows LoginPage
               exact
               path="/profile"
             >
@@ -62,13 +61,17 @@ function App() {
             </ProtectedRoute>
 
             <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
               exact
               path="/list"
             >
               <PCList />
             </ProtectedRoute>
-
+            <ProtectedRoute
+              exact
+              path="/view/:id"
+            >
+              <ViewPC />
+            </ProtectedRoute>
             <Route
               exact
               path="/login"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
@@ -14,6 +14,10 @@ function PCList() {
   const addPC = () => {
     dispatch({ type: 'ADD_PC' });
   }
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_PC_LIST' });
+  }, []);
 
   return (
     <div className="container">
