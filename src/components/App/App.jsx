@@ -19,7 +19,7 @@ import ViewPC from '../ViewPC/ViewPC';
 import './App.css';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
-import { lightBlue, purple } from '@mui/material/colors';
+import { lightBlue, purple, red, cyan } from '@mui/material/colors';
 
 const mainTheme = createTheme({
   palette: {
@@ -28,6 +28,12 @@ const mainTheme = createTheme({
     },
     secondary: {
       main: lightBlue[300],
+    },
+    warning: {
+      main: red[700],
+    },
+    view: {
+      main: cyan[300],
     },
   },
 });

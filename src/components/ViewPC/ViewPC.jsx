@@ -1,15 +1,29 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
-
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
+import Paper from '@mui/material/Paper';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 function ViewPC() {
+  const params = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_PC_VIEW', payload: { id: params.id } });
+  }, []);
+
   return (
-    <Grid>
-      
+    <Grid container spacing={2}>
+      <Grid item xs={4}>
+        <Paper></Paper>
+      </Grid>
+      <Grid item xs={4}>
+        <Paper></Paper>
+      </Grid>
+      <Grid item xs={4}>
+        <Paper></Paper>
+      </Grid>
     </Grid>
   );
 }

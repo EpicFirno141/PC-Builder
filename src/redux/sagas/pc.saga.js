@@ -2,14 +2,24 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
-function* fetchPC() {
-    try {
-        const response = yield axios.get('/api/pc');
+function* fetchPCList() {
+  try {
+      const response = yield axios.get('/api/pc');
 
-        yield put({ type: 'SET_PC_LIST', payload: response.data.rows });
-    } catch (error) {
-        console.log('PC GET request failed', error);
-    }
+      yield put({ type: 'SET_PC_LIST', payload: response.data });
+  } catch (error) {
+      console.log('PC GET request failed', error);
+  }
+}
+
+function* fetchPCItem(action) {
+  try {
+    const response = yield axios.get(`/api/pc/${action.payload.id}`);
+
+    yield put({ type: 'SET_PC_ITEM', payload: response.data });
+  } catch (error) {
+      console.log('PC GET request failed', error);
+  }
 }
 
 function* addPC() {
@@ -24,7 +34,8 @@ function* addPC() {
 
 function* pcSaga() {
   yield takeLatest('ADD_PC', addPC);
-  yield takeLatest('FETCH_PC_LIST', fetchPC);
+  yield takeLatest('FETCH_PC_LIST', fetchPCList);
+  yield takeLatest('FETCH_PC_ITEM', fetchPCItem);
 }
 
 export default pcSaga;
