@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 function ViewPC() {
   const params = useParams();
   const dispatch = useDispatch();
+  const pcItem = useSelector(store => store.pcItem);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_PC_VIEW', payload: { id: params.id } });
@@ -16,7 +17,7 @@ function ViewPC() {
   return (
     <Grid container spacing={2}>
       <Grid item xs={4}>
-        <Paper></Paper>
+        <Paper>{pcItem.name}</Paper>
       </Grid>
       <Grid item xs={4}>
         <Paper></Paper>
