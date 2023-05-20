@@ -14,7 +14,6 @@ function ViewPC() {
   const params = useParams();
   const dispatch = useDispatch();
   const pcItem = useSelector(store => store.pcItem);
-  const pc = pcItem[0];
 
   useEffect(() => {
     dispatch({ type: 'FETCH_PC_ITEM', payload: { id: params.id } });
@@ -25,7 +24,7 @@ function ViewPC() {
       <Grid item xs={4}>
         <Card>
           <CardContent>
-            <Typography>{pc.name}</Typography>
+            <Typography>{pcItem.name}</Typography>
           </CardContent>
         </Card>
       </Grid>

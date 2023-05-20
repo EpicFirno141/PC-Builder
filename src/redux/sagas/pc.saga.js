@@ -16,7 +16,7 @@ function* fetchPCItem(action) {
   try {
     const response = yield axios.get(`/api/pc/${action.payload.id}`);
 
-    yield put({ type: 'SET_PC_ITEM', payload: response.data });
+    yield put({ type: 'SET_PC_ITEM', payload: response.data[0] });
   } catch (error) {
       console.log('PC GET request failed', error);
   }
