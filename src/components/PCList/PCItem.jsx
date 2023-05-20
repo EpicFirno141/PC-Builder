@@ -6,8 +6,15 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { CardMedia } from '@mui/material';
+import { useHistory } from 'react-router-dom';
 
 function PCItem({pc}) {
+    const history = useHistory();
+
+    const viewPC = () => {
+        history.push(`/view/${pc.id}`);
+    }
+
     return(
         <Card>
             <CardContent>
@@ -56,7 +63,7 @@ function PCItem({pc}) {
                         alignItems="flex-end"
                         item xs={6}
                     >
-                        <Button variant='contained' color='view' sx={{ textAlign: 'right' }}>View</Button>
+                        <Button variant='contained' color='view' onClick={viewPC} sx={{ textAlign: 'right' }}>View</Button>
                     </Grid>
                 </Grid>
             </CardActions>

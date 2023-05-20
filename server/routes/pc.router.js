@@ -24,7 +24,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
   JOIN status ON pc.status_id = status.id WHERE pc.id = $1;`;
   pool.query(queryText, [req.params.id]).then((response) => {
     console.log(response.rows);
-    if(response.rows.data[0].user_id === req.user.id){
+    if(response.rows[0].user_id === req.user.id){
       res.send(response.rows);
     } else {
       res.sendStatus(403);
