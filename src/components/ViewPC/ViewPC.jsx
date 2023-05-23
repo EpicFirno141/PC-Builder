@@ -1,6 +1,5 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
-import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,18 +7,20 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CircleIcon from '@mui/icons-material/Circle';
-import { common } from '@mui/material/colors';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ComponentItem from './ComponentItem';
 
 function ViewPC() {
   const params = useParams();
   const dispatch = useDispatch();
   const pcItem = useSelector(store => store.pcItem);
+  const componentList = useSelector(store => store.componentList);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_PC_ITEM', payload: { id: params.id } });
+    dispatch({ type: 'FETCH_COMPONENT_LIST', payload: { id: params.id } });
   }, []);
 
   return (
@@ -50,12 +51,18 @@ function ViewPC() {
       <Grid item xs={6}>
         <Card sx={{ m: 2 }}>
           <CardContent>
-            <Typography variant='h5'>Components:</Typography>
-            <Card sx={{ m: 1 }}>
-              <CardContent>
-                <Typography>Something</Typography>
-              </CardContent>
-            </Card>
+            <Typography variant='h5' sx={{ mb: 2 }}>Components:</Typography>
+            <Grid container spacing={2}>
+              {
+                componentList.map((component) => (
+                  <Grid item xs={12} key={component.id}>
+                    <ComponentItem 
+                      component = {component}
+                    />
+                  </Grid>
+                ))
+              }
+            </Grid>
           </CardContent>
         </Card>
       </Grid>
@@ -64,7 +71,7 @@ function ViewPC() {
             <CardActions>
               <Grid container spacing={2} direction='column' justifyContent='center' alignItems='center'>
                 <Grid item xs={8}>
-                  <Button variant='contained' sx={{ textAlign: 'center' }}>Edit</Button>
+                  <Button variant='contained' sx={{ }}>Edit</Button>
                 </Grid>
                 <Grid item xs={8}>
                   <Button variant='contained'>Delete</Button>
