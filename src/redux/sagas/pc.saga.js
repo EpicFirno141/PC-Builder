@@ -31,10 +31,20 @@ function* addPC() {
   }
 }
 
+function* removePC(action) {
+  try {
+    yield axios.delete(`/api/pc/${action.payload.id}`);
+    yield put({ type: 'FETCH PC LIST' });
+  } catch (error) {
+    console.log('PC DELETE request failed', error);
+  }
+}
+
 function* pcSaga() {
   yield takeLatest('ADD_PC', addPC);
   yield takeLatest('FETCH_PC_LIST', fetchPCList);
   yield takeLatest('FETCH_PC_ITEM', fetchPCItem);
+  yield takeLatest('REMOVE_PC', removePC);
 }
 
 export default pcSaga;

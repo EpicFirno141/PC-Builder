@@ -18,6 +18,10 @@ function ViewPC() {
   const dispatch = useDispatch();
   const pcItem = useSelector(store => store.pcItem);
 
+  const deletePC = () => {
+    dispatch({});
+  }
+
   useEffect(() => {
     dispatch({ type: 'FETCH_PC_ITEM', payload: { id: params.id } });
     dispatch({ type: 'FETCH_COMPONENT_LIST', payload: { id: params.id } });
@@ -42,7 +46,7 @@ function ViewPC() {
                 <Typography sx={{ m: 'auto' }}><b>Status:</b> {pcItem.status}</Typography>
               </Grid>
               <Grid item xs={8}>
-                <Typography sx={{ m: 'auto' }}><b>Color:</b> <CircleIcon sx={{ color: 'white' }} /> </Typography>
+                <Typography sx={{ m: 'auto' }}><b>Color:</b> <CircleIcon sx={{ color: pcItem.color }} /> </Typography>
               </Grid>
             </Grid>  
           </CardContent>
