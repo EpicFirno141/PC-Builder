@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CircleIcon from '@mui/icons-material/Circle';
 import { blue } from '@mui/material/colors';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ComponentList from './ComponentList';
@@ -16,10 +16,13 @@ import ComponentList from './ComponentList';
 function ViewPC() {
   const params = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const pcItem = useSelector(store => store.pcItem);
 
   const deletePC = () => {
-    dispatch({});
+    dispatch({ type: 'REMOVE_PC', payload: { id: params.id } });
+    history.push('/');
   }
 
   useEffect(() => {
@@ -63,7 +66,7 @@ function ViewPC() {
                   <Button variant='contained' sx={{ }}>Edit</Button>
                 </Grid>
                 <Grid item xs={8}>
-                  <Button variant='contained'>Delete</Button>
+                  <Button variant='contained' onClick={deletePC}>Delete</Button>
                 </Grid>
               </Grid>
             </CardActions>

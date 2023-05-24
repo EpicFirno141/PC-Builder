@@ -7,12 +7,18 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { CardMedia } from '@mui/material';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 function PCItem({pc}) {
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const viewPC = () => {
         history.push(`/view/${pc.id}`);
+    }
+
+    const deletePC = () => {
+        dispatch({ type: 'REMOVE_PC', payload: { id: pc.id } });
     }
 
     return(
@@ -55,7 +61,7 @@ function PCItem({pc}) {
             <CardActions>
                 <Grid container spacing={0}>
                     <Grid item xs={6}>
-                        <Button variant='contained' color='warning' sx={{ textAlign: 'left' }}>Remove</Button>
+                        <Button variant='contained' color='warning' sx={{ textAlign: 'left' }} onClick={deletePC}>Remove</Button>
                     </Grid>
                     <Grid 
                         display="flex"
