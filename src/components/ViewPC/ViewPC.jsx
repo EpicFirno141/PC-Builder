@@ -7,16 +7,16 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CircleIcon from '@mui/icons-material/Circle';
+import { blue } from '@mui/material/colors';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ComponentItem from './ComponentItem';
+import ComponentList from './ComponentList';
 
 function ViewPC() {
   const params = useParams();
   const dispatch = useDispatch();
   const pcItem = useSelector(store => store.pcItem);
-  const componentList = useSelector(store => store.componentList);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_PC_ITEM', payload: { id: params.id } });
@@ -49,22 +49,7 @@ function ViewPC() {
         </Card>
       </Grid>
       <Grid item xs={6}>
-        <Card sx={{ m: 2 }}>
-          <CardContent>
-            <Typography variant='h5' sx={{ mb: 2 }}>Components:</Typography>
-            <Grid container spacing={2}>
-              {
-                componentList.map((component) => (
-                  <Grid item xs={12} key={component.id}>
-                    <ComponentItem 
-                      component = {component}
-                    />
-                  </Grid>
-                ))
-              }
-            </Grid>
-          </CardContent>
-        </Card>
+        <ComponentList />
       </Grid>
       <Grid item xs={3}>
         <Card sx={{ m: 2, p: 1 }}>

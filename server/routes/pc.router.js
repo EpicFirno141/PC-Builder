@@ -40,7 +40,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
     const queryText = `INSERT INTO "pc" (name, status_id, color, user_id)
-    VALUES ('New PC', 2, 'white', $1)`;
+    VALUES ('New PC', 2, 'blue[500]', $1)`;
   pool
     .query(queryText, [req.user.id])
     .then(() => res.sendStatus(201))
@@ -49,5 +49,15 @@ router.post('/', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500);
     });
 });
+
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  const queryText = `DELETE from pc `;
+  pool.query(queryText, [req.params.id]).then((result) => {
+    res.sendStatus(201);
+  }).catch((error) => {
+    console.log('Delete PC failed: ' + error);
+    res.sendStatus(500);
+  });
+})
 
 module.exports = router;
