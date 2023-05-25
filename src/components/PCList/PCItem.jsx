@@ -4,6 +4,8 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { CardMedia } from '@mui/material';
 import { useHistory } from 'react-router-dom';
@@ -22,36 +24,33 @@ function PCItem({pc}) {
     }
 
     return(
-        <Card>
+        <Card sx={{ maxWidth: 500 }}>
             <CardContent>
-                <Grid container spacing={2}>
-                    <Grid item xs={8}>
+                <Box width={1}>
+                    <Stack direction="row"
+                    justifyContent="space-between"
+                    alignItems="center">
                         <Typography variant='h5'>{pc.name}</Typography>
-                    </Grid>
-                    <Grid display="flex"
-                        justifyContent="flex-end"
-                        alignItems="flex-end"
-                        item xs={4}>
                         {
                             pc.status === 'Built' &&
-                                <Paper elevation={1} sx={{ backgroundColor: 'green', m: 'auto', p: 1, textAlign: 'right' }}>
+                                <Paper elevation={1} sx={{ backgroundColor: 'green', p: 1 }}>
                                     <Typography variant='h7'>{pc.status}</Typography>
                                 </Paper>
                         }
                         {
                             pc.status === 'Designed' &&
-                                <Paper elevation={1} sx={{ backgroundColor: 'yellow', m: 'auto', p: 1, textAlign: 'right' }}>
+                                <Paper elevation={1} sx={{ backgroundColor: 'yellow', p: 1 }}>
                                     <Typography variant='h7'>{pc.status}</Typography>
                                 </Paper>
                         }
                         {
                             pc.status === 'Incomplete' &&
-                                <Paper elevation={1} sx={{ backgroundColor: 'gray', m: 'auto', p: 1, textAlign: 'right', minWidth: 80}}>
+                                <Paper elevation={1} sx={{ backgroundColor: 'gray', p: 1, minWidth: 80}}>
                                     <Typography variant='h7'>{pc.status}</Typography>
                                 </Paper>
                         }
-                    </Grid>
-                </Grid>
+                    </Stack>
+                </Box>
             </CardContent>
             <CardMedia
                 component="img"
@@ -59,19 +58,14 @@ function PCItem({pc}) {
                 image=""
             />
             <CardActions>
-                <Grid container spacing={0}>
-                    <Grid item xs={6}>
-                        <Button variant='contained' color='warning' sx={{ textAlign: 'left' }} onClick={deletePC}>Remove</Button>
-                    </Grid>
-                    <Grid 
-                        display="flex"
-                        justifyContent="flex-end"
-                        alignItems="flex-end"
-                        item xs={6}
-                    >
-                        <Button variant='contained' color='view' onClick={viewPC} sx={{ textAlign: 'right' }}>View</Button>
-                    </Grid>
-                </Grid>
+                <Box width={1}>
+                    <Stack direction="row"
+                    justifyContent="space-between"
+                    alignItems="center">
+                        <Button variant='contained' color='warning' onClick={deletePC}>Remove</Button>
+                        <Button variant='contained' color='view' onClick={viewPC}>View</Button>
+                    </Stack>
+                </Box>
             </CardActions>
         </Card>
     );
