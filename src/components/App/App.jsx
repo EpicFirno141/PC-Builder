@@ -31,7 +31,7 @@ const mainTheme = createTheme({
     secondary: {
       main: lightBlue[300],
     },
-    warning: {
+    error: {
       main: red[700],
     },
     view: {
