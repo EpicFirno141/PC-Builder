@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Nav from '../Nav/Nav';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import OnlyThisUser from '../ProtectedRoute/OnlyThisUser';
 
 import PCList from '../PCList/PCList';
 import Profile from '../Profile/Profile';
@@ -50,7 +51,9 @@ function App() {
     <ThemeProvider theme={mainTheme}>
       <Router>
         <div>
+          {/* The Nav bar at the top of the page */}
           <Nav />
+
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/list" />
@@ -72,12 +75,16 @@ function App() {
             >
               <PCList />
             </ProtectedRoute>
-            <ProtectedRoute
-              exact
-              path="/view/:id"
-            >
-              <ViewPC />
-            </ProtectedRoute>
+        
+              <ProtectedRoute
+                exact
+                path="/view/:id"
+              >
+                <OnlyThisUser>
+                  <ViewPC />
+                </OnlyThisUser>
+              </ProtectedRoute>
+
             <Route
               exact
               path="/login"

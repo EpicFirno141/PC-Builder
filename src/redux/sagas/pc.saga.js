@@ -34,7 +34,7 @@ function* addPC() {
 function* removePC(action) {
   try {
     yield axios.delete(`/api/pc/${action.payload.id}`);
-    yield put({ type: 'FETCH PC LIST' });
+    yield put({ type: 'FETCH_PC_LIST' });
   } catch (error) {
     console.log('PC DELETE request failed', error);
   }
