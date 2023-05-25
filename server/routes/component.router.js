@@ -18,8 +18,13 @@ router.get('/pc/:id', rejectUnauthenticated, (req, res) => {
   JOIN component_type ON component.component_type_id = component_type.id 
   WHERE pc.id = $1;`;
   pool.query(queryText, [req.params.id]).then((response) => {
-    console.log(response.rows);
-    if(response.rows[0].user_id === req.user.id){
+    // Three conditions: 1 - There are no components for PC
+    // 2 - There are components for PC & user matches in database
+    // 3 - There are components for PC & user DOES NOT match in database
+    if(response.rows.length === 0){
+      console.log('There are no components');
+      res.send([]);
+    } else if(response.rows[0].user_id === req.user.id){
       res.send(response.rows);
     } else {
       res.sendStatus(403);

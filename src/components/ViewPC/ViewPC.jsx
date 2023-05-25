@@ -24,12 +24,7 @@ function ViewPC() {
     dispatch({ type: 'REMOVE_PC', payload: { id: params.id } });
     history.push('/');
   }
-
-  useEffect(() => {
-    dispatch({ type: 'FETCH_PC_ITEM', payload: { id: params.id } });
-    dispatch({ type: 'FETCH_COMPONENT_LIST', payload: { id: params.id } });
-  }, []);
-
+  
   return (
     <Grid container spacing={0}>
       <Grid item xs={3}>

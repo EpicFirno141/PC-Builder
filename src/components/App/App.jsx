@@ -17,6 +17,7 @@ import PCList from '../PCList/PCList';
 import Profile from '../Profile/Profile';
 import LoginPage from '../LoginPage/LoginPage';
 import ViewPC from '../ViewPC/ViewPC';
+import Footer from '../Footer/Footer';
 import './App.css';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
@@ -104,6 +105,7 @@ function App() {
               <h1>404</h1>
             </Route>
           </Switch>
+          <Footer />
         </div>
       </Router>
     </ThemeProvider>

@@ -4,16 +4,14 @@ import NotAllowed from '../NotAllowed/NotAllowed';
 import {useDispatch, useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-// A Custom Wrapper Component -- This will keep our code DRY.
-// Responsible for watching redux state, and returning an appropriate component
-// API for this component is the same as a regular route
+// NOTE: This is NOT the last line of defense. It is the first.
+// The primary function of this component is to reroute the user to a 
+// nice looking page that tells them they aren't allowed to view the one
+// they had tried visiting.
 
-// THIS IS NOT SECURITY! That must be done on the server
-// A malicious user could change the code and see any view
-// so your server-side route must implement real security
-// by checking req.isAuthenticated for authentication
-// and by checking req.user for authorization
-
+// All this does is make it so the user is (hopefully) never shown an incomplete
+// page; because the server doesn't give them the data after checking that the
+// user's id doesn't match in the database
 function OnlyThisUser({ component, children, ...props }) {
     const dispatch = useDispatch();
     const params = useParams();
@@ -22,17 +20,18 @@ function OnlyThisUser({ component, children, ...props }) {
     const pcItem = useSelector(store => store.pcItem);
 
     //Retrieve data from server about specific PC, stored afterwards as the reducer pcItem
-    //Note: This makes a call to the server, which IS ALSO going to check the user's id.
-    //This means that this isn't the last line of defense or anything, its moreso just a way
-    //to CLEANLY route users away from pages they shouldn't be on in the first place 
-    //before the server handles the rest of the security.
-    dispatch({ type: 'FETCH_PC_ITEM', payload: { id: params.id } });
+    const checkPCMatch = () => {
+        dispatch({ type: 'FETCH_PC_ITEM', payload: { id: params.id } });
+        dispatch({ type: 'FETCH_COMPONENT_LIST', payload: { id: params.id } });
+    }
+    //dispatch({ type: 'FETCH_PC_ITEM', payload: { id: params.id } });
 
-    // Component may be passed in as a "component" prop,
-    // or as a child component.
     const ProtectedComponent = component || (() => children);
 
-    // We return a Route component that gets added to our list of routes
+    useEffect(() => {
+        checkPCMatch();
+    }, [])
+
     return (
     <Route
         // all props like 'exact' and 'path' that were passed in
