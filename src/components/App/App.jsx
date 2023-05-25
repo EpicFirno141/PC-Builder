@@ -21,7 +21,7 @@ import Footer from '../Footer/Footer';
 import './App.css';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
-import { lightBlue, purple, red, cyan } from '@mui/material/colors';
+import { red, purple, deepPurple, indigo, lightBlue, cyan, green, lime, orange } from '@mui/material/colors';
 
 const mainTheme = createTheme({
   palette: {
@@ -31,11 +31,35 @@ const mainTheme = createTheme({
     secondary: {
       main: lightBlue[300],
     },
-    error: {
+    remove: {
       main: red[700],
     },
     view: {
       main: cyan[300],
+    },
+    red: {
+      main: red[500],
+    },
+    purple: {
+      main: purple[500],
+    },
+    deepPurple: {
+      main: deepPurple[500],
+    },
+    indigo: {
+      main: indigo[500],
+    },
+    lightBlue: {
+      main: lightBlue[500],
+    },
+    green: {
+      main: green[500],
+    },
+    lime: {
+      main: lime[500],
+    },
+    orange: {
+      main: orange[500],
     },
   },
 });

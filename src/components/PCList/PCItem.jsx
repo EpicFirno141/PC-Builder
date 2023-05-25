@@ -9,7 +9,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { CardMedia } from '@mui/material';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 function PCItem({pc}) {
     const history = useHistory();
@@ -24,7 +25,7 @@ function PCItem({pc}) {
     }
 
     return(
-        <Card sx={{ maxWidth: 500 }}>
+        <Card sx={{ maxWidth: 500, border: 8, borderColor: 'indigo.main' }}>
             <CardContent>
                 <Box width={1}>
                     <Stack direction="row"
@@ -55,14 +56,15 @@ function PCItem({pc}) {
             <CardMedia
                 component="img"
                 height="140"
-                image=""
+                width={1}
+                image={pc.image}
             />
             <CardActions>
                 <Box width={1}>
                     <Stack direction="row"
                     justifyContent="space-between"
                     alignItems="center">
-                        <Button variant='contained' color='warning' onClick={deletePC}>Remove</Button>
+                        <Button variant='contained' color='remove' onClick={deletePC}>Remove</Button>
                         <Button variant='contained' color='view' onClick={viewPC}>View</Button>
                     </Stack>
                 </Box>
