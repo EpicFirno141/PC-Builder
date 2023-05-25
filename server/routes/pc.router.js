@@ -51,11 +51,18 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
-  const queryText = `DELETE FROM pc WHERE id = $1`;
+  const queryText = `DELETE FROM pc WHERE id = $1;`;
   pool.query(queryText, [req.params.id]).then((result) => {
-    res.sendStatus(201);
+    // Since we have a many-to-many table as well we need to remove all rows related to the now deleted table
+    const nextQueryText = `DELETE FROM pc_component WHERE pc_id = $1;`;
+    pool.query(nextQueryText, [req.params.id]).then((result) => {
+      res.sendStatus(201);
+    }).catch((error) => {
+      console.log('Second Delete PC query failed: ' + error);
+      res.sendStatus(500);
+    });
   }).catch((error) => {
-    console.log('Delete PC failed: ' + error);
+    console.log('First Delete PC query failed: ' + error);
     res.sendStatus(500);
   });
 })
