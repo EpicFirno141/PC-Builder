@@ -40,6 +40,14 @@ function* removePC(action) {
   }
 }
 
+function* updatePCDetails(action) {
+  try {
+    yield axios.update(`/api/pc/${action.payload.id}`)
+  } catch (error) {
+    console.log('PC UPDATE request failed', error);
+  }
+}
+
 function* pcSaga() {
   yield takeLatest('ADD_PC', addPC);
   yield takeLatest('FETCH_PC_LIST', fetchPCList);

@@ -52,7 +52,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
     const queryText = `INSERT INTO "pc" (name, status_id, color, user_id)
-    VALUES ('New PC', 2, 'text.primary', $1)`;
+    VALUES ('New PC', 2, 'red', $1)`;
   pool
     .query(queryText, [req.user.id])
     .then(() => res.sendStatus(201))

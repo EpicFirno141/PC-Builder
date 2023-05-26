@@ -53,3 +53,185 @@ CREATE TABLE pc_component (
 );
 
 INSERT INTO component_type (type) VALUES ('gpu'), ('cpu'), ('cpu_cooler'), ('psu'), ('motherboard'), ('memory'), ('storage'), ('case');
+
+INSERT INTO component (name, image, price, component_type_id, specs, wattage) 
+VALUES (
+'Nvidia GeForce RTX 4090', 
+'https://m.media-amazon.com/images/I/71RgD3MP-hL._AC_SX679_.jpg', 
+1600, 
+1, 
+'CUDA Cores: 16384, Boost Clock (GHz): 2.52, Memory Size: 24 GB',
+450
+), 
+
+(
+'AMD Radeon RX 7900 XTX', 
+'https://www.amd.com/system/files/2022-10/1678052-amd-radeon-7900xtx-1260x709.png', 
+1000, 
+1, 
+'Boost Clock (GHz): 2.5, Memory Size: 24 GB',
+355
+), 
+
+(
+'AMD Radeon RX 7900 XT', 
+'https://www.amd.com/system/files/2022-11/1678052-amd-radeon-7900xt-1260x709.png', 
+900, 
+1, 
+'Boost Clock (GHz): 2.4, Memory Size: 20 GB',
+315
+), 
+
+(
+'Nvidia GeForce RTX 4070 Ti', 
+'https://cdn.thepcenthusiast.com/wp-content/uploads/2023/04/nvidia-geforce-rtx-4070-founders-edition-02.jpg', 
+800, 
+1, 
+'CUDA Cores: 7680, Boost Clock (GHz): 2.61, Memory Size: 12 GB',
+285
+), 
+
+(
+'Nvidia GeForce RTX 4070', 
+'https://cdn.thepcenthusiast.com/wp-content/uploads/2023/04/nvidia-geforce-rtx-4070-founders-edition-02.jpg', 
+600, 
+1, 
+'CUDA Cores: 5888, Boost Clock (GHz): 2.48, Memory Size: 12 GB',
+200
+), 
+
+(
+'AMD Radeon RX 6800', 
+'https://techgage.com/wp-content/uploads/2020/11/AMD-Radeon-RX-6800-XT-Angle-View-680x357.jpg', 
+580, 
+1, 
+'Boost Clock (GHz): 2.1, Memory Size: 16 GB',
+250
+), 
+
+(
+'AMD Radeon RX 6700 XT', 
+'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6457/6457624_sd.jpg', 
+480, 
+1, 
+'Boost Clock (GHz): 2.58, Memory Size: 12 GB',
+230
+), 
+
+(
+'AMD Radeon RX 6650 XT', 
+'https://www.amd.com/system/files/2022-04/1303168-AMD-Radeon-RX-6650-XT-angled-1260x709.png', 
+400, 
+1, 
+'Boost Clock (GHz): 2.63, Memory Size: 8 GB',
+180
+), 
+
+(
+'Nvidia GeForce RTX 3060', 
+'https://m.media-amazon.com/images/I/81uFpNyjm5L.jpg', 
+330, 
+1, 
+'CUDA Cores: 3584, Boost Clock (GHz): 1.78, Memory Size: 8 GB',
+170
+), 
+
+(
+'Intel Arc A750', 
+'https://c1.neweggimages.com/ProductImage/14-883-002-07.jpg', 
+250, 
+1, 
+'Clock (GHz): 2.05, Memory Size: 8 GB',
+225
+), 
+
+(
+'AMD Radeon RX 6600', 
+'https://www.amd.com/system/files/2021-07/910022-amd-radeon-6600XT-angle1260x709_0.png', 
+330, 
+1, 
+'Boost Clock (GHz): 2.49, Memory Size: 8 GB',
+132
+), 
+
+(
+'Intel Arc A380', 
+'https://www.hwcooling.net/wp-content/uploads/2022/04/Grafick%C3%A1-karta-Intel-Arc-Limited-Edition-upoutavka.jpg', 
+140, 
+1, 
+'Boost Clock (GHz): 2.0, Memory Size: 6 GB',
+75
+), 
+
+(
+'Nvidia GeForce RTX 3060 Ti', 
+'https://m.media-amazon.com/images/I/81uFpNyjm5L.jpg', 
+400, 
+1, 
+'CUDA Cores: 4864, Boost Clock (GHz): 1.67, Memory Size: 8 GB',
+200
+), 
+
+(
+'Nvidia GeForce RTX 3080', 
+'https://i.ebayimg.com/images/g/m6oAAOSwoDRjbOHE/s-l640.jpg', 
+700, 
+1, 
+'CUDA Cores: 8704, Boost Clock (GHz): 1.71, Memory Size: 10 GB',
+320
+), 
+
+(
+'Nvidia GeForce RTX 3080 Ti', 
+'https://www.notebookcheck.net/fileadmin/Notebooks/NVIDIA/GeForce_RTX_3080_Ti_Founders_Edition/Ampere_3080Ti_Back_1.jpg', 
+1200, 
+1, 
+'CUDA Cores: 10240, Boost Clock (GHz): 1.67, Memory Size: 12 GB',
+350
+), 
+
+(
+'Nvidia GeForce RTX 3070', 
+'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3070/geforce-rtx-3070-shop-630-d@2x.png', 
+500, 
+1, 
+'CUDA Cores: 5888, Boost Clock (GHz): 1.73, Memory Size: 8 GB',
+220
+), 
+
+(
+'Nvidia GeForce RTX 3070 Ti', 
+'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6465/6465789_sd.jpg', 
+600, 
+1, 
+'CUDA Cores: 6144, Boost Clock (GHz): 1.77, Memory Size: 8 GB',
+290
+), 
+
+(
+'Nvidia GeForce RTX 4080', 
+'https://m.media-amazon.com/images/I/71m9FJCubXL.jpg', 
+1200, 
+1, 
+'CUDA Cores: 9728, Boost Clock (GHz): 2.51, Memory Size: 16 GB',
+320
+), 
+
+(
+'AMD Radeon RX 7600', 
+'https://www.amd.com/system/files/2023-05/2029064-amd-radeon-rx-7600-og.jpg', 
+270, 
+1, 
+'Boost Clock (GHz): 2.65, Memory Size: 8 GB',
+165
+), 
+
+(
+'AMD Radeon RX 6900 XT', 
+'https://www.amd.com/system/files/2020-10/579976-radeon-rx-6000xt-left-angle-1260x709_0.png', 
+1000, 
+1, 
+'Boost Clock (GHz): 2.25, Memory Size: 16 GB',
+300
+)
+;

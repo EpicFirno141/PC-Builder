@@ -19,6 +19,10 @@ function EditPC() {
         history.push(`/details/${pcItem.id}`);
     }
 
+    const goBack = () => {
+        history.push(`/view/${pcItem.id}`);
+    }
+
     return (
         <Grid container spacing={0}>
             <Stack>
@@ -34,7 +38,9 @@ function EditPC() {
                         <Stack>
                             <Typography sx={{ m: 'auto' }}><b>Name:</b> {pcItem.name}</Typography>
                             <Typography sx={{ m: 'auto' }}><b>Status:</b> {pcItem.status}</Typography>
-                            <Typography sx={{ m: 'auto' }}><b>Color:</b> <CircleIcon sx={{ color: pcItem.color }} /> </Typography>
+                            <Typography sx={{ m: 'auto' }}><b>Color:</b> 
+                                <CircleIcon color='lime' sx={{ verticalAlign: 'middle', pb: 0.3 }}/>
+                            </Typography>
                         </Stack>
                     </CardContent>
                 </Card>
@@ -44,7 +50,7 @@ function EditPC() {
                 <CardActions>
                     <Stack spacing={2} sx={{ height: 'auto' }}>
                         <Button variant='contained' onClick={details}>Change Details</Button>
-                        <Button variant='contained'>View</Button>
+                        <Button variant='contained' onClick={goBack}>Back</Button>
                     </Stack>
                 </CardActions>
             </Card>
