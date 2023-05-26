@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import { CardMedia } from '@mui/material';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function PCItem({pc}) {
     const history = useHistory();
@@ -25,7 +25,7 @@ function PCItem({pc}) {
     }
 
     return(
-        <Card sx={{ maxWidth: 500, border: 8, borderColor: 'indigo.main' }}>
+        <Card sx={{ maxWidth: 500, border: 8, borderColor: pc.color }}>
             <CardContent>
                 <Box width={1}>
                     <Stack direction="row"

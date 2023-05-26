@@ -1,5 +1,6 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -20,6 +21,10 @@ function ViewPC() {
 
   const pcItem = useSelector(store => store.pcItem);
 
+  const editPC = () => {
+    history.push(`/edit/${pcItem.id}`);
+  }
+
   const deletePC = () => {
     dispatch({ type: 'REMOVE_PC', payload: { id: params.id } });
     history.push('/');
@@ -32,7 +37,7 @@ function ViewPC() {
           <CardMedia 
             component="img"
             height="300"
-            image="https://c1.neweggimages.com/ProductImage/2AM-000T-001M3-76.jpg"/>
+            image={pcItem.image} />
         </Card>
         <Card sx={{ m: 2 }}>
           <CardContent>
@@ -44,7 +49,9 @@ function ViewPC() {
                 <Typography sx={{ m: 'auto' }}><b>Status:</b> {pcItem.status}</Typography>
               </Grid>
               <Grid item xs={8}>
-                <Typography sx={{ m: 'auto' }}><b>Color:</b> <CircleIcon sx={{ color: pcItem.color }} /> </Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Typography sx={{ m: 'auto' }}><b>Color:</b> <CircleIcon color={pcItem.color} /> </Typography>
+                </Box>
               </Grid>
             </Grid>  
           </CardContent>
@@ -58,7 +65,7 @@ function ViewPC() {
             <CardActions>
               <Grid container spacing={2} direction='column' justifyContent='center' alignItems='center'>
                 <Grid item xs={8}>
-                  <Button variant='contained' sx={{ }}>Edit</Button>
+                  <Button variant='contained' onClick={editPC}>Edit</Button>
                 </Grid>
                 <Grid item xs={8}>
                   <Button variant='contained' onClick={deletePC}>Delete</Button>

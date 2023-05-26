@@ -16,7 +16,9 @@ import OnlyThisUser from '../ProtectedRoute/OnlyThisUser';
 import PCList from '../PCList/PCList';
 import Profile from '../Profile/Profile';
 import LoginPage from '../LoginPage/LoginPage';
+import ChangeDetails from '../EditPC/ChangeDetails';
 import ViewPC from '../ViewPC/ViewPC';
+import EditPC from '../EditPC/EditPC';
 import Footer from '../Footer/Footer';
 import './App.css';
 import { ThemeProvider } from '@emotion/react';
@@ -101,14 +103,32 @@ function App() {
               <PCList />
             </ProtectedRoute>
         
-              <ProtectedRoute
-                exact
-                path="/view/:id"
-              >
-                <OnlyThisUser>
-                  <ViewPC />
-                </OnlyThisUser>
-              </ProtectedRoute>
+            <ProtectedRoute
+              exact
+              path="/view/:id"
+            >
+              <OnlyThisUser>
+                <ViewPC />
+              </OnlyThisUser>
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              exact
+              path="/edit/:id"
+            >
+              <OnlyThisUser>
+                <EditPC />
+              </OnlyThisUser>
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              exact
+              path="/details/:id"
+            >
+              <OnlyThisUser>
+                <ChangeDetails />
+              </OnlyThisUser>
+            </ProtectedRoute>
 
             <Route
               exact

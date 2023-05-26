@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 function PCList() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const pcList = useSelector(store => store.pcList)
+  const pcList = useSelector(store => store.pcList);
 
   const addPC = () => {
     dispatch({ type: 'ADD_PC' });
