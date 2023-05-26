@@ -42,7 +42,8 @@ function* removePC(action) {
 
 function* updatePCDetails(action) {
   try {
-    yield axios.update(`/api/pc/${action.payload.id}`)
+    yield axios.update(`/api/pc/${action.payload.id}`, action.payload);
+    yield put({ type: 'FETCH_PC_LIST' });
   } catch (error) {
     console.log('PC UPDATE request failed', error);
   }
@@ -53,6 +54,7 @@ function* pcSaga() {
   yield takeLatest('FETCH_PC_LIST', fetchPCList);
   yield takeLatest('FETCH_PC_ITEM', fetchPCItem);
   yield takeLatest('REMOVE_PC', removePC);
+  yield takeLatest('UPDATE_PC_DETAILS', updatePCDetails);
 }
 
 export default pcSaga;

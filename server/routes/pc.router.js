@@ -62,6 +62,15 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     });
 });
 
+router.update('/:id', rejectUnauthenticated, (req, res) => {
+    const queryText = `UPDATE pc SET name = $1, status = $2, color = $3 WHERE id = $4`;
+    pool.query(queryText, [req.body.name, req.body.status, req.body.color, req.params.id]).then(() => res.sendStatus(201))
+    .catch((err) => {
+      console.log('Update PC failed: ', err);
+      res.sendStatus(500);
+    });
+})
+
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   const queryText = `DELETE FROM pc_component WHERE pc_id = $1;`;
   pool.query(queryText, [req.params.id]).then((result) => {

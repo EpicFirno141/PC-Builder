@@ -31,8 +31,16 @@ function ChangeDetails() {
     }
 
     const saveDetails = () => {
+        let statusID;
+        if(statusValue === 'Incomplete'){
+            statusID = 2;
+        } else if(statusValue === 'Designed'){
+            statusID = 3;
+        } else if(statusValue === 'Built'){
+            statusID = 1;
+        }
         dispatch({ type: 'UPDATE_PC_DETAILS', payload: {
-            id: pcItem.id, name: name, status: statusValue, color: colorValue
+            id: pcItem.id, name: name, status: statusID, color: colorValue
         } });
     }
 
