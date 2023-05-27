@@ -35,7 +35,6 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
   const queryText = `SELECT pc.id, pc.name, pc.color, status.name AS status, pc.user_id FROM pc 
   JOIN status ON pc.status_id = status.id WHERE pc.id = $1;`;
   pool.query(queryText, [req.params.id]).then((response) => {
-    console.log(response.rows);
     if(response.rows[0].user_id === req.user.id){
       res.send(response.rows);
     } else {
@@ -62,8 +61,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     });
 });
 
-router.update('/:id', rejectUnauthenticated, (req, res) => {
-    const queryText = `UPDATE pc SET name = $1, status = $2, color = $3 WHERE id = $4`;
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    const queryText = `UPDATE pc SET name = $1, status_id = $2, color = $3 WHERE id = $4`;
     pool.query(queryText, [req.body.name, req.body.status, req.body.color, req.params.id]).then(() => res.sendStatus(201))
     .catch((err) => {
       console.log('Update PC failed: ', err);

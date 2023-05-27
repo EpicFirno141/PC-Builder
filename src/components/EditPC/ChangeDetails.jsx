@@ -42,6 +42,7 @@ function ChangeDetails() {
         dispatch({ type: 'UPDATE_PC_DETAILS', payload: {
             id: pcItem.id, name: name, status: statusID, color: colorValue
         } });
+        history.push(`/edit/${pcItem.id}`);
     }
 
     const handleName = (event) => {
@@ -57,6 +58,7 @@ function ChangeDetails() {
     }
 
     useEffect(() => {
+        setName(pcItem.name);
         setStatusValue(pcItem.status);
         setColorValue(pcItem.color);
     }, []);
@@ -66,7 +68,7 @@ function ChangeDetails() {
             <Card>
                 <CardContent>
                     <Stack spacing={3} sx={{ alignItems: 'center', p: 1 }}>
-                        <TextField onChange={handleName} defaultValue={pcItem.name} label='Name' variant="outlined" />
+                        <TextField onChange={handleName} value={name} label='Name' variant="outlined" />
                         <FormControl>
                             <FormLabel>Status</FormLabel>
                             <RadioGroup row value={statusValue} onChange={handleStatus}>
@@ -129,9 +131,12 @@ function ChangeDetails() {
                             </RadioGroup>
                         </FormControl>
                     </Stack>
+                    
+                </CardContent>
+                <CardActions>
                     <Button variant='contained' sx={{ mx: 1 }} onClick={saveDetails}>Save</Button>
                     <Button variant='contained' sx={{ mx: 1 }} onClick={goBack}>Back</Button>
-                </CardContent>
+                </CardActions>
             </Card>
         </Box>
     );

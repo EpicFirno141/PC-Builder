@@ -39,7 +39,7 @@ function EditPC() {
                             <Typography sx={{ m: 'auto' }}><b>Name:</b> {pcItem.name}</Typography>
                             <Typography sx={{ m: 'auto' }}><b>Status:</b> {pcItem.status}</Typography>
                             <Typography sx={{ m: 'auto' }}><b>Color:</b> 
-                                <CircleIcon color='lime' sx={{ verticalAlign: 'middle', pb: 0.3 }}/>
+                                <CircleIcon color={pcItem.color} sx={{ verticalAlign: 'middle', pb: 0.3 }}/>
                             </Typography>
                         </Stack>
                     </CardContent>

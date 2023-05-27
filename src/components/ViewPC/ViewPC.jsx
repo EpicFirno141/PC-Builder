@@ -29,6 +29,10 @@ function ViewPC() {
     dispatch({ type: 'REMOVE_PC', payload: { id: params.id } });
     history.push('/');
   }
+
+  const goBack = () => {
+    history.push('/list');
+  }
   
   return (
     <Grid container spacing={0}>
@@ -69,6 +73,9 @@ function ViewPC() {
                 </Grid>
                 <Grid item xs={8}>
                   <Button variant='contained' onClick={deletePC}>Delete</Button>
+                </Grid>
+                <Grid item xs={8}>
+                  <Button variant='contained' onClick={goBack}>Back</Button>
                 </Grid>
               </Grid>
             </CardActions>

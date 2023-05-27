@@ -42,7 +42,7 @@ function* removePC(action) {
 
 function* updatePCDetails(action) {
   try {
-    yield axios.update(`/api/pc/${action.payload.id}`, action.payload);
+    yield axios.put(`/api/pc/${action.payload.id}`, action.payload);
     yield put({ type: 'FETCH_PC_LIST' });
   } catch (error) {
     console.log('PC UPDATE request failed', error);
