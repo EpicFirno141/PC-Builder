@@ -32,8 +32,14 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.get('/:id', rejectUnauthenticated, (req, res) => {
-  const queryText = `SELECT pc.id, pc.name, pc.color, status.name AS status, pc.user_id FROM pc 
-  JOIN status ON pc.status_id = status.id WHERE pc.id = $1;`;
+  const queryText = `SELECT DISTINCT ON (pc.id) pc.id, pc.name, pc.color, status.name AS status, pc.user_id, 
+  CASE WHEN component.component_type_id = 8 THEN component.image
+  ELSE 'https://c1.neweggimages.com/ProductImage/2AM-000T-001M3-76.jpg' 
+  END AS image FROM pc
+  JOIN status ON pc.status_id = status.id 
+  LEFT JOIN pc_component ON pc.id = pc_component.pc_id
+  LEFT JOIN component ON pc_component.component_id = component.id 
+  WHERE pc.id = $1 ORDER BY pc.id, component.component_type_id DESC;`;
   pool.query(queryText, [req.params.id]).then((response) => {
     if(response.rows[0].user_id === req.user.id){
       res.send(response.rows);

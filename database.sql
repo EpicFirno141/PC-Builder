@@ -235,3 +235,103 @@ VALUES (
 300
 )
 ;
+
+INSERT INTO component (name, image, price, component_type_id, specs, compatibility, wattage) VALUES (
+'AMD Ryzen 5 5600X',
+'https://www.amd.com/system/files/2020-09/616656-amd-ryzen-5-5000-series-PIB-fan-1260x709.png',
+200,
+2,
+'Cores: 6, Threads: 12, Base Clock (GHz): 3.7',
+'AM4',
+65
+),
+
+(
+'Intel Core i9-13900K',
+'https://m.media-amazon.com/images/I/71k+Zrz-Y0L.jpg',
+590,
+2,
+'Cores: 24, Threads: 32, Base Clock (GHz): 3.0',
+'FCLGA1700',
+250
+),
+
+(
+'AMD Ryzen 9 5900X',
+'https://www.amd.com/system/files/2020-09/616656-amd-ryzen-9-5000-series-PIB-1260x709_0.png',
+570,
+2,
+'Cores: 12, Threads: 24, Base Clock (GHz): 3.7',
+'AM4',
+105
+),
+
+(
+'AMD Ryzen 5 3600',
+'https://c1.neweggimages.com/ProductImage/19-113-569-V10.jpg',
+200,
+2,
+'Cores: 6, Threads: 12, Base Clock (GHz): 3.6',
+'AM4',
+65
+),
+
+(
+'AMD Ryzen 7 5800X',
+'https://m.media-amazon.com/images/I/61DYLoyNRWL.jpg',
+450,
+2,
+'Cores: 8, Threads: 16, Base Clock (GHz): 3.8',
+'AM4',
+105
+),
+
+(
+'AMD Ryzen 5 5600G',
+'https://m.media-amazon.com/images/I/51f2hkWjTlL.jpg',
+260,
+2,
+'Cores: 6, Threads: 12, Base Clock (GHz): 3.9',
+'AM4',
+65
+),
+
+(
+'AMD Ryzen 7 3700X',
+'https://m.media-amazon.com/images/I/71Q2Vcw-wlL.jpg',
+330,
+2,
+'Cores: 8, Threads: 16, Base Clock (GHz): 3.6',
+'AM4',
+65
+),
+
+(
+'AMD Ryzen 7 5700X',
+'https://m.media-amazon.com/images/I/61eXyK93hQL._AC_UF894,1000_QL80_.jpg',
+300,
+2,
+'Cores: 8, Threads: 16, Base Clock (GHz): 3.4',
+'AM4',
+65
+),
+
+(
+'AMD Ryzen 9 7950X',
+'https://m.media-amazon.com/images/I/51APBaH8CFL._AC_UF894',
+700,
+2,
+'Cores: 16, Threads: 32, Base Clock (GHz): 4.5',
+'AM5',
+170
+),
+
+(
+'Intel Core i7-12700H',
+'https://c1.neweggimages.com/ProductImage/19-118-345-05.jpg',
+750,
+2,
+'Cores: 14, Threads: 20, Base Clock (GHz): 4.7',
+'FCBGA1744',
+115
+);
