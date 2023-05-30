@@ -20,10 +20,11 @@ function ViewPC() {
   const history = useHistory();
 
   const pcItem = useSelector(store => store.pcItem);
+  const componentList = useSelector(store => store.componentList);
 
-  const editPC = () => {
-    history.push(`/edit/${pcItem.id}`);
-  }
+  const details = () => {
+    history.push(`/details/${pcItem.id}`);
+}
 
   const deletePC = () => {
     dispatch({ type: 'REMOVE_PC', payload: { id: params.id } });
@@ -69,7 +70,7 @@ function ViewPC() {
             <CardActions>
               <Grid container spacing={2} direction='column' justifyContent='center' alignItems='center'>
                 <Grid item xs={8}>
-                  <Button variant='contained' onClick={editPC}>Edit</Button>
+                  <Button variant='contained' onClick={details}>Change Details</Button>
                 </Grid>
                 <Grid item xs={8}>
                   <Button variant='contained' onClick={deletePC}>Delete</Button>

@@ -35,4 +35,31 @@ router.get('/pc/:id', rejectUnauthenticated, (req, res) => {
   });
 });
 
+router.get('/gpu', rejectUnauthenticated, (req, res) => {
+  const queryText = `SELECT component.id, component.name, component.image, component.price,
+  component.money_spent, component_type.type, component.subtype, component.specs, 
+  component.compatibility, component.speed, component.efficiency, component.wattage  
+  FROM component 
+  JOIN component_type ON component.component_type_id = component_type.id 
+  WHERE component_type.type = 'gpu';`;
+  pool.query(queryText).then((response) => {
+    res.send(response.rows);
+  }).catch((err) => {
+      console.log('Get GPU components list failed: ', err);
+      res.sendStatus(500);
+  });
+});
+
+router.post('/', rejectUnauthenticated, (req, res) => {
+  const queryText = `INSERT INTO pc_component (pc_id, component_id) VALUES ($1, $2);`;
+  pool.query(queryText, [req.body.pc, req.body.component]).then((response) => {
+    res.sendStatus(201);
+  }).catch((err) => {
+      console.log('POST to pc_component failed: ', err);
+      res.sendStatus(500);
+  });
+});
+
+
+
 module.exports = router;

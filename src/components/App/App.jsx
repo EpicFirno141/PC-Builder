@@ -24,6 +24,7 @@ import './App.css';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
 import { red, purple, deepPurple, indigo, lightBlue, cyan, green, lime, orange } from '@mui/material/colors';
+import SearchGPU from '../Search/SearchGPU';
 
 const mainTheme = createTheme({
   palette: {
@@ -101,6 +102,13 @@ function App() {
               path="/list"
             >
               <PCList />
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              exact
+              path="/search/gpu"
+            >
+              <SearchGPU />
             </ProtectedRoute>
         
             <ProtectedRoute
