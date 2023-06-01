@@ -120,7 +120,7 @@ function ComponentList() {
                                     />
                             ))
                         }
-                        <Button variant='contained'>Add</Button>
+                        <Button variant='contained' onClick={searchCooler}>Add</Button>
                     </Box>
                 </CardContent>
             </Card>
@@ -138,7 +138,7 @@ function ComponentList() {
                                     />
                             ))
                         }
-                        <Button variant='contained'>Add</Button>
+                        <Button variant='contained' onClick={searchMobo}>Add</Button>
                     </Box>
                 </CardContent>
             </Card>
@@ -156,7 +156,7 @@ function ComponentList() {
                                     />
                             ))
                         }
-                        <Button variant='contained'>Add</Button>
+                        <Button variant='contained' onClick={searchMemory}>Add</Button>
                     </Box>
                 </CardContent>
             </Card>
@@ -174,7 +174,7 @@ function ComponentList() {
                                     />
                             ))
                         }
-                        <Button variant='contained'>Add</Button>
+                        <Button variant='contained' onClick={searchStorage}>Add</Button>
                     </Box>
                 </CardContent>
             </Card>
@@ -192,7 +192,7 @@ function ComponentList() {
                                     />
                             ))
                         }
-                        <Button variant='contained'>Add</Button>
+                        <Button variant='contained' onClick={searchPSU}>Add</Button>
                     </Box>
                 </CardContent>
             </Card>
@@ -210,7 +210,7 @@ function ComponentList() {
                                     />
                             ))
                         }
-                        <Button variant='contained'>Add</Button>
+                        <Button variant='contained' onClick={searchCase}>Add</Button>
                     </Box>
                 </CardContent>
             </Card>
