@@ -62,6 +62,7 @@ function PCItem({pc}) {
                             height="140"
                             width={1}
                             image={pc.image}
+                            sx={{ objectFit: 'contain', height: 160, width: '100%', mb: 1 }}
                         />
                         <CardActions>
                             <Box width={1}>
@@ -111,6 +112,7 @@ function PCItem({pc}) {
                             height="140"
                             width={1}
                             image={pc.image}
+                            sx={{ objectFit: 'contain', height: 160, width: '100%', mb: 1 }}
                         />
                         <CardActions>
                             <Box width={1}>
@@ -160,6 +162,7 @@ function PCItem({pc}) {
                             height="140"
                             width={1}
                             image={pc.image}
+                            sx={{ objectFit: 'contain', height: 160, width: '100%', mb: 1 }}
                         />
                         <CardActions>
                             <Box width={1}>
@@ -209,6 +212,7 @@ function PCItem({pc}) {
                             height="140"
                             width={1}
                             image={pc.image}
+                            sx={{ objectFit: 'contain', height: 160, width: '100%', mb: 1 }}
                         />
                         <CardActions>
                             <Box width={1}>
@@ -258,6 +262,7 @@ function PCItem({pc}) {
                             height="140"
                             width={1}
                             image={pc.image}
+                            sx={{ objectFit: 'contain', height: 160, width: '100%', mb: 1 }}
                         />
                         <CardActions>
                             <Box width={1}>
@@ -307,6 +312,7 @@ function PCItem({pc}) {
                             height="140"
                             width={1}
                             image={pc.image}
+                            sx={{ objectFit: 'contain', height: 160, width: '100%', mb: 1 }}
                         />
                         <CardActions>
                             <Box width={1}>
@@ -356,6 +362,7 @@ function PCItem({pc}) {
                             height="140"
                             width={1}
                             image={pc.image}
+                            sx={{ objectFit: 'contain', height: 160, width: '100%', mb: 1 }}
                         />
                         <CardActions>
                             <Box width={1}>
@@ -405,6 +412,7 @@ function PCItem({pc}) {
                             height="140"
                             width={1}
                             image={pc.image}
+                            sx={{ objectFit: 'contain', height: 160, width: '100%', mb: 1 }}
                         />
                         <CardActions>
                             <Box width={1}>

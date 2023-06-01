@@ -81,6 +81,7 @@ function LoginPage() {
             sx={{ mt: 1, mr: 1, ml: 1, width: '30ch' }}
             value={password}
             required
+            type='password'
             onChange={(event) => setPassword(event.target.value)}
           />
         </CardContent>

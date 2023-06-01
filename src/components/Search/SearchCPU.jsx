@@ -8,23 +8,23 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import GpuData from './GpuData';
+import CpuData from './CpuData';
 
-function SearchGPU() {
+function SearchCPU() {
     const dispatch = useDispatch();
-    const gpuList = useSelector(store => store.gpuList);
+    const cpuList = useSelector(store => store.cpuList);
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_GPU_LIST'} );
+        dispatch({ type: 'FETCH_CPU_LIST'} );
     }, []);
     return(
         <Box sx={{ width: 3/4, m: 'auto', mt: 2, alignItems: 'center', justifyContent: 'center' }}>
             <Grid container spacing={2}>
                 {
-                    gpuList.map((gpu, i) => (
+                    cpuList.map((cpu, i) => (
                         <Grid item key={i}>
-                            <GpuData
-                                gpu = {gpu}
+                            <CpuData 
+                                cpu = {cpu}
                             />
                         </Grid>
                     ))
@@ -34,4 +34,4 @@ function SearchGPU() {
     );
 }
 
-export default SearchGPU;
+export default SearchCPU;

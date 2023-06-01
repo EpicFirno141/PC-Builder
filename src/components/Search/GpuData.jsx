@@ -5,9 +5,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-function GpuItem({gpu}) {
+function GpuData({gpu}) {
     const dispatch = useDispatch();
+    const history = useHistory();
     const pcItem = useSelector(store => store.pcItem);
 
     const addGPU = (event) => {
@@ -15,7 +17,8 @@ function GpuItem({gpu}) {
             pc: pcItem.id,
             component: gpu.id
         }
-        dispatch({ type: 'ADD_COMPONENT', payload: component })
+        dispatch({ type: 'ADD_COMPONENT', payload: component });
+        history.push(`/view/${pcItem.id}`);
     }
 
     return(
@@ -30,10 +33,10 @@ function GpuItem({gpu}) {
                 image={gpu.image}
                 sx={{ objectFit: 'contain', height: 80, width: '100%', mb: 1 }}/>
             <CardActions>
-                <Button variant='contained' onClick={addGPU}>Add</Button>
+                <Button variant='contained' onClick={addGPU} sx={{ m: 'auto', alignItems: 'center'}}>Add</Button>
             </CardActions>
         </Card>
     );
 }
 
-export default GpuItem;
+export default GpuData;

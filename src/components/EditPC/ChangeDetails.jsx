@@ -27,7 +27,7 @@ function ChangeDetails() {
     const [name, setName] = useState('');
 
     const goBack = () => {
-        history.push(`/edit/${pcItem.id}`);
+        history.push(`/view/${pcItem.id}`);
     }
 
     const saveDetails = () => {
@@ -42,7 +42,7 @@ function ChangeDetails() {
         dispatch({ type: 'UPDATE_PC_DETAILS', payload: {
             id: pcItem.id, name: name, status: statusID, color: colorValue
         } });
-        history.push(`/edit/${pcItem.id}`);
+        history.push(`/view/${pcItem.id}`);
     }
 
     const handleName = (event) => {

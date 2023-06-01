@@ -7,6 +7,7 @@ import componentList from './componentList.reducer';
 import pcColor from './color.reducer';
 import componentCount from './pcComponentCount.reducer';
 import gpuList from './gpuList.reducer';
+import cpuList from './cpuList.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   pcColor,
   componentCount,
   gpuList,
+  cpuList,
 });
 
 export default rootReducer;

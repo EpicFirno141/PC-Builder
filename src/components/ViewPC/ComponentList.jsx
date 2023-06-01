@@ -10,9 +10,15 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ComponentItem from './ComponentItem';
-import ChildrenCount from './ChildrenCount';
+import GpuItem from './GpuItem';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import CpuItem from './CpuItem';
+import CaseItem from './CaseItem';
+import CoolerItem from './CoolerItem';
+import MemoryItem from './MemoryItem';
+import StorageItem from './StorageItem';
+import MoboItem from './MoboItem';
+import PsuItem from './PsuItem';
 
 function ComponentList() {
     const history = useHistory();
@@ -26,11 +32,40 @@ function ComponentList() {
             pc: pcItem.id,
             component: id
         }
+        console.log(JSON.stringify(removal));
         dispatch({ type: 'REMOVE_COMPONENT', payload: removal });
     }
 
     const searchGPU = () => {
         history.push('/search/gpu');
+    }
+
+    const searchCPU = () => {
+        history.push('/search/cpu');
+    }
+
+    const searchCooler = () => {
+        history.push('/search/cooler');
+    }
+
+    const searchMobo = () => {
+        history.push('/search/mobo');
+    }
+
+    const searchMemory = () => {
+        history.push('/search/memory');
+    }
+
+    const searchStorage = () => {
+        history.push('/search/storage');
+    }
+
+    const searchPSU = () => {
+        history.push('/search/psu');
+    }
+
+    const searchCase = () => {
+        history.push('/search/case');
     }
 
     return (
@@ -40,22 +75,13 @@ function ComponentList() {
                     <Typography variant='h4'>GPU</Typography>
                     <Box>
                         {
-                            componentList.map((component) => (
+                            componentList.map((component, i) => (
                                 component.type === 'gpu' && 
-                                    <Card key={component.id} sx={{ my: 2 }}>
-                                        <CardContent>
-                                            <Typography variant='h6'>{component.name}</Typography>
-                                            <Typography variant='body2'>${component.price}</Typography>
-                                            <Typography variant='body2'>{component.specs}</Typography>
-                                        </CardContent>
-                                        <CardMedia 
-                                            component="img"
-                                            image={component.image}
-                                            sx={{ objectFit: 'contain', height: 100, width: '100%', mb: 1 }}/>
-                                        <CardActions>
-                                            <Button variant='contained' onClick={() => removeComponent(component.id)}>Remove</Button>
-                                        </CardActions>
-                                    </Card>
+                                    <GpuItem 
+                                    key = {i}
+                                    component = {component}
+                                    removeComponent = {removeComponent}
+                                    />
                             ))
                         }
                         <Button variant='contained' onClick={searchGPU}>Add</Button>
@@ -67,19 +93,103 @@ function ComponentList() {
                     <Typography variant='h4'>CPU</Typography>
                     <Box>
                         {
-                            componentList.map((component) => (
+                            componentList.map((component, i) => (
                                 component.type === 'cpu' && 
-                                    <Card key={component.id} sx={{ my: 2 }}>
-                                        <CardContent>
-                                            <Typography variant='h6'>{component.name}</Typography>
-                                            <Typography variant='body2'>${component.price}</Typography>
-                                            <Typography variant='body2'>{component.specs}</Typography>
-                                        </CardContent>
-                                        <CardMedia 
-                                            component="img"
-                                            image={component.image}
-                                            sx={{ objectFit: 'contain', height: 100, width: '100%', mb: 1 }}/>
-                                    </Card>
+                                    <CpuItem 
+                                    key = {i}
+                                    component = {component}
+                                    removeComponent = {removeComponent}
+                                    />
+                            ))
+                        }
+                        <Button variant='contained' onClick={searchCPU}>Add</Button>
+                    </Box>
+                </CardContent>
+            </Card>
+            <Card sx={{ mt: 2 }}>
+                <CardContent>
+                    <Typography variant='h4'>Cooler</Typography>
+                    <Box>
+                        {
+                            componentList.map((component, i) => (
+                                component.type === 'cpu_cooler' && 
+                                    <CoolerItem 
+                                    key = {i}
+                                    component = {component}
+                                    removeComponent = {removeComponent}
+                                    />
+                            ))
+                        }
+                        <Button variant='contained'>Add</Button>
+                    </Box>
+                </CardContent>
+            </Card>
+            <Card sx={{ mt: 2 }}>
+                <CardContent>
+                    <Typography variant='h4'>Motherboard</Typography>
+                    <Box>
+                        {
+                            componentList.map((component, i) => (
+                                component.type === 'motherboard' && 
+                                    <MoboItem 
+                                    key = {i}
+                                    component = {component}
+                                    removeComponent = {removeComponent}
+                                    />
+                            ))
+                        }
+                        <Button variant='contained'>Add</Button>
+                    </Box>
+                </CardContent>
+            </Card>
+            <Card sx={{ mt: 2 }}>
+                <CardContent>
+                    <Typography variant='h4'>Memory</Typography>
+                    <Box>
+                        {
+                            componentList.map((component, i) => (
+                                component.type === 'memory' && 
+                                    <MemoryItem 
+                                    key = {i}
+                                    component = {component}
+                                    removeComponent = {removeComponent}
+                                    />
+                            ))
+                        }
+                        <Button variant='contained'>Add</Button>
+                    </Box>
+                </CardContent>
+            </Card>
+            <Card sx={{ mt: 2 }}>
+                <CardContent>
+                    <Typography variant='h4'>Storage</Typography>
+                    <Box>
+                        {
+                            componentList.map((component, i) => (
+                                component.type === 'storage' && 
+                                    <StorageItem 
+                                    key = {i}
+                                    component = {component}
+                                    removeComponent = {removeComponent}
+                                    />
+                            ))
+                        }
+                        <Button variant='contained'>Add</Button>
+                    </Box>
+                </CardContent>
+            </Card>
+            <Card sx={{ mt: 2 }}>
+                <CardContent>
+                    <Typography variant='h4'>PSU</Typography>
+                    <Box>
+                        {
+                            componentList.map((component, i) => (
+                                component.type === 'psu' && 
+                                    <PsuItem 
+                                    key = {i}
+                                    component = {component}
+                                    removeComponent = {removeComponent}
+                                    />
                             ))
                         }
                         <Button variant='contained'>Add</Button>
@@ -91,19 +201,13 @@ function ComponentList() {
                     <Typography variant='h4'>Case</Typography>
                     <Box>
                         {
-                            componentList.map((component) => (
+                            componentList.map((component, i) => (
                                 component.type === 'case' && 
-                                    <Card key={component.id} sx={{ my: 2 }}>
-                                        <CardContent>
-                                            <Typography variant='h6'>{component.name}</Typography>
-                                            <Typography variant='body2'>${component.price}</Typography>
-                                            <Typography variant='body2'>{component.specs}</Typography>
-                                        </CardContent>
-                                        <CardMedia 
-                                            component="img"
-                                            image={component.image}
-                                            sx={{ objectFit: 'contain', height: 100, width: '100%', mb: 1 }}/>
-                                    </Card>
+                                    <CaseItem 
+                                    key = {i}
+                                    component = {component}
+                                    removeComponent = {removeComponent}
+                                    />
                             ))
                         }
                         <Button variant='contained'>Add</Button>
