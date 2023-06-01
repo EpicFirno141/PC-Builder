@@ -26,6 +26,12 @@ import { createTheme } from '@mui/material/styles';
 import { red, purple, deepPurple, indigo, lightBlue, cyan, green, lime, orange } from '@mui/material/colors';
 import SearchGPU from '../Search/SearchGPU';
 import SearchCPU from '../Search/SearchCPU';
+import SearchCooler from '../Search/SearchCooler';
+import SearchCase from '../Search/SearchCase';
+import SearchMemory from '../Search/SearchMemory';
+import SearchMobo from '../Search/SearchMobo';
+import SearchPSU from '../Search/SearchPSU';
+import SearchStorage from '../Search/SearchStorage';
 
 const mainTheme = createTheme({
   palette: {
@@ -117,6 +123,48 @@ function App() {
               path="/search/cpu"
             >
               <SearchCPU />
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              exact
+              path="/search/cooler"
+            >
+              <SearchCooler />
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              exact
+              path="/search/mobo"
+            >
+              <SearchMobo />
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              exact
+              path="/search/memory"
+            >
+              <SearchMemory />
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              exact
+              path="/search/storage"
+            >
+              <SearchStorage />
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              exact
+              path="/search/psu"
+            >
+              <SearchPSU />
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              exact
+              path="/search/case"
+            >
+              <SearchCase />
             </ProtectedRoute>
         
             <ProtectedRoute
