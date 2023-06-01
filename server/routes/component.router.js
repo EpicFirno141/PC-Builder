@@ -65,6 +65,96 @@ router.get('/cpu', rejectUnauthenticated, (req, res) => {
   });
 });
 
+router.get('/case', rejectUnauthenticated, (req, res) => {
+  const queryText = `SELECT component.id, component.name, component.image, component.price,
+  component.money_spent, component_type.type, component.subtype, component.specs, 
+  component.compatibility, component.speed, component.efficiency, component.wattage  
+  FROM component 
+  JOIN component_type ON component.component_type_id = component_type.id 
+  WHERE component_type.type = 'case';`;
+  pool.query(queryText).then((response) => {
+    res.send(response.rows);
+  }).catch((err) => {
+      console.log('Get Case components list failed: ', err);
+      res.sendStatus(500);
+  });
+});
+
+router.get('/cooler', rejectUnauthenticated, (req, res) => {
+  const queryText = `SELECT component.id, component.name, component.image, component.price,
+  component.money_spent, component_type.type, component.subtype, component.specs, 
+  component.compatibility, component.speed, component.efficiency, component.wattage  
+  FROM component 
+  JOIN component_type ON component.component_type_id = component_type.id 
+  WHERE component_type.type = 'cpu_cooler';`;
+  pool.query(queryText).then((response) => {
+    res.send(response.rows);
+  }).catch((err) => {
+      console.log('Get Cooler components list failed: ', err);
+      res.sendStatus(500);
+  });
+});
+
+router.get('/mobo', rejectUnauthenticated, (req, res) => {
+  const queryText = `SELECT component.id, component.name, component.image, component.price,
+  component.money_spent, component_type.type, component.subtype, component.specs, 
+  component.compatibility, component.speed, component.efficiency, component.wattage  
+  FROM component 
+  JOIN component_type ON component.component_type_id = component_type.id 
+  WHERE component_type.type = 'motherboard';`;
+  pool.query(queryText).then((response) => {
+    res.send(response.rows);
+  }).catch((err) => {
+      console.log('Get Mobo components list failed: ', err);
+      res.sendStatus(500);
+  });
+});
+
+router.get('/memory', rejectUnauthenticated, (req, res) => {
+  const queryText = `SELECT component.id, component.name, component.image, component.price,
+  component.money_spent, component_type.type, component.subtype, component.specs, 
+  component.compatibility, component.speed, component.efficiency, component.wattage  
+  FROM component 
+  JOIN component_type ON component.component_type_id = component_type.id 
+  WHERE component_type.type = 'memory';`;
+  pool.query(queryText).then((response) => {
+    res.send(response.rows);
+  }).catch((err) => {
+      console.log('Get Memory components list failed: ', err);
+      res.sendStatus(500);
+  });
+});
+
+router.get('/storage', rejectUnauthenticated, (req, res) => {
+  const queryText = `SELECT component.id, component.name, component.image, component.price,
+  component.money_spent, component_type.type, component.subtype, component.specs, 
+  component.compatibility, component.speed, component.efficiency, component.wattage  
+  FROM component 
+  JOIN component_type ON component.component_type_id = component_type.id 
+  WHERE component_type.type = 'storage';`;
+  pool.query(queryText).then((response) => {
+    res.send(response.rows);
+  }).catch((err) => {
+      console.log('Get Storage components list failed: ', err);
+      res.sendStatus(500);
+  });
+});
+
+router.get('/psu', rejectUnauthenticated, (req, res) => {
+  const queryText = `SELECT component.id, component.name, component.image, component.price,
+  component.money_spent, component_type.type, component.subtype, component.specs, 
+  component.compatibility, component.speed, component.efficiency, component.wattage  
+  FROM component 
+  JOIN component_type ON component.component_type_id = component_type.id 
+  WHERE component_type.type = 'psu';`;
+  pool.query(queryText).then((response) => {
+    res.send(response.rows);
+  }).catch((err) => {
+      console.log('Get PSU components list failed: ', err);
+      res.sendStatus(500);
+  });
+});
+
 router.post('/', rejectUnauthenticated, (req, res) => {
   const queryText = `INSERT INTO pc_component (pc_id, component_id) VALUES ($1, $2);`;
   pool.query(queryText, [req.body.pc, req.body.component]).then((response) => {
