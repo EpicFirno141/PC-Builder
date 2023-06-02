@@ -59,7 +59,7 @@ function SideDrawer() {
                                     </ListItemButton>
                                 </ListItem>
                                 <ListItem disablePadding>
-                                    <ListItemButton>
+                                    <ListItemButton onClick={() => history.push('/community')}>
                                     <ListItemIcon>
                                         <ForumIcon />
                                     </ListItemIcon>

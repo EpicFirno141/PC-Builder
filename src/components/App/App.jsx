@@ -32,6 +32,7 @@ import SearchMemory from '../Search/SearchMemory';
 import SearchMobo from '../Search/SearchMobo';
 import SearchPSU from '../Search/SearchPSU';
 import SearchStorage from '../Search/SearchStorage';
+import Community from '../Community/Community';
 
 const mainTheme = createTheme({
   palette: {
@@ -165,6 +166,13 @@ function App() {
               path="/search/case"
             >
               <SearchCase />
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              exact
+              path="/community"
+            >
+              <Community />
             </ProtectedRoute>
         
             <ProtectedRoute
