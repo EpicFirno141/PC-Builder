@@ -18,7 +18,6 @@ import Profile from '../Profile/Profile';
 import LoginPage from '../LoginPage/LoginPage';
 import ChangeDetails from '../EditPC/ChangeDetails';
 import ViewPC from '../ViewPC/ViewPC';
-import EditPC from '../EditPC/EditPC';
 import Footer from '../Footer/Footer';
 import './App.css';
 import { ThemeProvider } from '@emotion/react';
@@ -181,15 +180,6 @@ function App() {
             >
               <OnlyThisUser>
                 <ViewPC />
-              </OnlyThisUser>
-            </ProtectedRoute>
-
-            <ProtectedRoute
-              exact
-              path="/edit/:id"
-            >
-              <OnlyThisUser>
-                <EditPC />
               </OnlyThisUser>
             </ProtectedRoute>
 

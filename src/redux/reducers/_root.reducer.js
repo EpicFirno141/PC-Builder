@@ -5,7 +5,6 @@ import pcList from './pcList.reducer'
 import pcItem from './pcItem.reducer';
 import componentList from './componentList.reducer';
 import pcColor from './color.reducer';
-import componentCount from './pcComponentCount.reducer';
 import gpuList from './gpuList.reducer';
 import cpuList from './cpuList.reducer';
 import storageList from './storageList.reducer';
@@ -14,6 +13,8 @@ import caseList from './caseList.reducer';
 import moboList from './moboList.reducer';
 import psuList from './psuList.reducer';
 import coolerList from './coolerList.reducer';
+import pcPrice from './pcPrice.reducer';
+import pcWattage from './pcWattage.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -27,7 +28,6 @@ const rootReducer = combineReducers({
   pcItem,
   componentList,
   pcColor,
-  componentCount,
   gpuList,
   cpuList,
   coolerList,
@@ -36,6 +36,8 @@ const rootReducer = combineReducers({
   storageList,
   psuList,
   caseList,
+  pcPrice,
+  pcWattage,
 });
 
 export default rootReducer;

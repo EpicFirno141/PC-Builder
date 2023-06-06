@@ -21,6 +21,8 @@ function ViewPC() {
 
   const pcItem = useSelector(store => store.pcItem);
   const componentList = useSelector(store => store.componentList);
+  const pcPrice = useSelector(store => store.pcPrice);
+  const pcWattage = useSelector(store => store.pcWattage);
 
   const details = () => {
     history.push(`/details/${pcItem.id}`);
@@ -80,6 +82,24 @@ function ViewPC() {
                 </Grid>
               </Grid>
             </CardActions>
+          </Card>
+          <Card sx={{ m: 2, p: 1 }}>
+            <CardContent>
+                {
+                  componentList.length === 0 ? 
+                    <Box>
+                      <Typography><b>Total Price:</b>  $0</Typography>
+                      <br />
+                      <Typography><b>Max Wattage:</b> 0 W</Typography>
+                    </Box> :
+                    <Box>
+                      <Typography><b>Total Price:</b>  ${pcPrice.price}</Typography>
+                      <br />
+                      <Typography><b>Max Wattage:</b> {pcWattage.wattage} W</Typography>
+                    </Box>
+                }
+
+            </CardContent>
           </Card>
       </Grid>
     </Grid>

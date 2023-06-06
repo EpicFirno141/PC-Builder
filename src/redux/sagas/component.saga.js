@@ -6,6 +6,8 @@ function* fetchComponentList(action) {
       const response = yield axios.get(`/api/component/pc/${action.payload.id}`);
 
       yield put({ type: 'SET_COMPONENT_LIST', payload: response.data });
+      yield put({ type: 'SET_PC_PRICE', payload: response.data });
+      yield put({ type: 'SET_PC_WATTAGE', payload: response.data });
   } catch (error) {
       console.log('Component List GET request failed', error);
   }
