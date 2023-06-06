@@ -13,6 +13,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ComponentList from './ComponentList';
+import myPCImage from '../../images/myPC.jpg';
 
 function ViewPC() {
   const params = useParams();
@@ -41,10 +42,19 @@ function ViewPC() {
     <Grid container spacing={0}>
       <Grid item xs={3}>
         <Card sx={{ m: 2 }}>
-          <CardMedia 
-            component="img"
-            height="300"
-            image={pcItem.image} />
+          {
+            pcItem.name === 'My PC' ?
+              <CardMedia 
+              component="img"
+              height="300"
+              image={myPCImage} /> 
+                :
+              <CardMedia 
+              component="img"
+              height="300"
+              image={pcItem.image} />
+          }
+          
         </Card>
         <Card sx={{ m: 2 }}>
           <CardContent>

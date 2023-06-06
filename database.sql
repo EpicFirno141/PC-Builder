@@ -335,3 +335,26 @@ INSERT INTO component (name, image, price, component_type_id, specs, compatibili
 'FCBGA1744',
 115
 );
+
+INSERT INTO component (name, image, price, component_type_id, specs, compatibility, wattage) VALUES 
+('Intel Core i7-10700K', 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6411/6411488_sd.jpg;maxHeight=640;maxWidth=550', 270, 2, 'Cores: 8, Threads: 16, Base Clock (GHz): 3.8', 'FCLGA1200', 125);
+
+INSERT INTO component (name, image, price, component_type_id, subtype, specs, speed, compatibility, wattage) VALUES 
+('NZXT Kraken Z63 RGB', 'https://nzxt.com/assets/cms/34299/1631207832-kraken-z63-rgb-white-keyshot.png?auto=format&fit=crop&h=1000&w=1000', 275, 3, 'liquid', '2x 140mm', '500-1500 RPM', 'Intel: Socket LGA 1700, 1200, 115X. AMD: AMD Socket AM5, AM4, sTRX4, TR4.', 5);
+
+
+INSERT INTO component (name, image, price, component_type_id, subtype, specs, compatibility, wattage) VALUES 
+('MSI MPG Z490 GAMING PLUS', 'https://asset.msi.com/resize/image/global/product/product_1682648567e6d88a858cda2c22ecdf46c8fc7e6c27.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png', 110, 5, 'ATX', 'DIMM Slots: 4, PCI-E X16 Slots: 2, PCI-E X1 Slots: 3, M.2 Slots: 2, USB Ports: 6', '1200', 100);
+
+INSERT INTO component (name, image, price, component_type_id, subtype, specs, wattage) VALUES 
+('Corsair Vengeance RGB Pro 32GB (2 x 16 GB)', 'https://cdna.pcpartpicker.com/static/forever/images/product/e508c7c5a301831579045f9fda179aac.256p.jpg', 80, 6, 'DDR4', '32 GB', 5);
+
+INSERT INTO component (name, image, price, component_type_id, subtype, specs, wattage) VALUES 
+('Crucial P1 1TB SSD', 'https://m.media-amazon.com/images/I/61uqrREgItL._AC_SX679_.jpg', 120, 7, 'SSD', '1 TB', 3);
+
+
+INSERT INTO component (name, image, price, component_type_id, subtype, specs, efficiency, wattage) VALUES 
+('Corsair RM750 Gold Certified Fully Modular PSU', 'https://m.media-amazon.com/images/I/81ICbUpnIpL.__AC_SY300_SX300_QL70_FMwebp_.jpg', 125, 4, 'Fully Modular', '750 W', 'Gold', 0);
+
+INSERT INTO component (name, image, price, component_type_id, subtype, compatibility, wattage) VALUES 
+('NZXT H5 Flow', 'https://nzxt.com/assets/cms/34299/1666138830-h5-flow-hero-white.png?auto=format&fit=crop&h=1000&w=1000', 95, 8, 'Mid-Tower', 'Mini-ITX, Micro-ATX, ATX', 0);
