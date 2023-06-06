@@ -38,7 +38,7 @@ function PCItem({pc}) {
                                     <Typography variant='h5'>{pc.name}</Typography>
                                     {
                                         pc.status === 'Built' &&
-                                            <Paper elevation={1} sx={{ backgroundColor: 'green', p: 1 }}>
+                                            <Paper elevation={1} sx={{ backgroundColor: 'green.main', p: 1 }}>
                                                 <Typography variant='h7'>{pc.status}</Typography>
                                             </Paper>
                                     }
@@ -88,7 +88,7 @@ function PCItem({pc}) {
                                     <Typography variant='h5'>{pc.name}</Typography>
                                     {
                                         pc.status === 'Built' &&
-                                            <Paper elevation={1} sx={{ backgroundColor: 'green', p: 1 }}>
+                                            <Paper elevation={1} sx={{ backgroundColor: 'green.main', p: 1 }}>
                                                 <Typography variant='h7'>{pc.status}</Typography>
                                             </Paper>
                                     }
@@ -138,7 +138,7 @@ function PCItem({pc}) {
                                     <Typography variant='h5'>{pc.name}</Typography>
                                     {
                                         pc.status === 'Built' &&
-                                            <Paper elevation={1} sx={{ backgroundColor: 'green', p: 1 }}>
+                                            <Paper elevation={1} sx={{ backgroundColor: 'green.main', p: 1 }}>
                                                 <Typography variant='h7'>{pc.status}</Typography>
                                             </Paper>
                                     }
@@ -188,7 +188,7 @@ function PCItem({pc}) {
                                     <Typography variant='h5'>{pc.name}</Typography>
                                     {
                                         pc.status === 'Built' &&
-                                            <Paper elevation={1} sx={{ backgroundColor: 'green', p: 1 }}>
+                                            <Paper elevation={1} sx={{ backgroundColor: 'green.main', p: 1 }}>
                                                 <Typography variant='h7'>{pc.status}</Typography>
                                             </Paper>
                                     }
@@ -238,7 +238,7 @@ function PCItem({pc}) {
                                     <Typography variant='h5'>{pc.name}</Typography>
                                     {
                                         pc.status === 'Built' &&
-                                            <Paper elevation={1} sx={{ backgroundColor: 'green', p: 1 }}>
+                                            <Paper elevation={1} sx={{ backgroundColor: 'green.main', p: 1 }}>
                                                 <Typography variant='h7'>{pc.status}</Typography>
                                             </Paper>
                                     }
@@ -288,7 +288,7 @@ function PCItem({pc}) {
                                     <Typography variant='h5'>{pc.name}</Typography>
                                     {
                                         pc.status === 'Built' &&
-                                            <Paper elevation={1} sx={{ backgroundColor: 'green', p: 1 }}>
+                                            <Paper elevation={1} sx={{ backgroundColor: 'green.main', p: 1 }}>
                                                 <Typography variant='h7'>{pc.status}</Typography>
                                             </Paper>
                                     }
@@ -338,7 +338,7 @@ function PCItem({pc}) {
                                     <Typography variant='h5'>{pc.name}</Typography>
                                     {
                                         pc.status === 'Built' &&
-                                            <Paper elevation={1} sx={{ backgroundColor: 'green', p: 1 }}>
+                                            <Paper elevation={1} sx={{ backgroundColor: 'green.main', p: 1 }}>
                                                 <Typography variant='h7'>{pc.status}</Typography>
                                             </Paper>
                                     }
@@ -388,7 +388,7 @@ function PCItem({pc}) {
                                     <Typography variant='h5'>{pc.name}</Typography>
                                     {
                                         pc.status === 'Built' &&
-                                            <Paper elevation={1} sx={{ backgroundColor: 'green', p: 1 }}>
+                                            <Paper elevation={1} sx={{ backgroundColor: 'green.main', p: 1 }}>
                                                 <Typography variant='h7'>{pc.status}</Typography>
                                             </Paper>
                                     }
