@@ -47,12 +47,14 @@ function ViewPC() {
               <CardMedia 
               component="img"
               height="300"
-              image={myPCImage} /> 
+              image={myPCImage}
+              sx={{ objectFit: 'contain' }} /> 
                 :
               <CardMedia 
               component="img"
               height="300"
-              image={pcItem.image} />
+              image={pcItem.image}
+              sx={{ objectFit: 'contain' }} />
           }
           
         </Card>
